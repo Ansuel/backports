@@ -33,8 +33,8 @@ class ConfigTree(object):
         self.bpid = bpid
         self.rootfile = os.path.basename(rootfile)
         if self.bpid.kconfig_source_var:
-            self.src_line = re.compile(r'^\s*source\s+"(?P<kconfig_var>' + self.bpid.kconfig_source_var_resafe + ')?/?(?P<src>[^\s"]*)"?\s*$')
-            self.kconfig_var_line = re.compile(r'.*(?P<kconfig_var>' + self.bpid.kconfig_source_var_resafe + ')+/+')
+            self.src_line = re.compile(rf'^\s*source\s+"(?P<kconfig_var>{self.bpid.kconfig_source_var_resafe})?/?(?P<src>[^\s"]*)"?\s*$')
+            self.kconfig_var_line = re.compile(rf'.*(?P<kconfig_var>{self.bpid.kconfig_source_var_resafe})+/+')
         else:
             self.src_line = re.compile(r'^\s*source\s+"(?P<src>[^\s"]*)"?\s*$')
             self.kconfig_var_line = None
@@ -119,7 +119,7 @@ class ConfigTree(object):
             outf.write(out)
             outf.close()
         # Now the kconfig_var is always required from now on
-        self.src_line = re.compile(r'^\s*source\s+"(?P<kconfig_var>' + self.bpid.kconfig_source_var_resafe + ')+/+(?P<src>[^\s"]*)"?\s*$')
+        self.src_line = re.compile(rf'^\s*source\s+"(?P<kconfig_var>{self.bpid.kconfig_source_var_resafe})+/+(?P<src>[^\s"]*)"?\s*$')
         self.verified = True
 
     def prune_sources(self, ignore=[]):

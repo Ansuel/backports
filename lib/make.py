@@ -16,7 +16,7 @@ class MakeTree(object):
 
     def _check_for_sym(self, f, sym):
         # re-read Makefile to see if it declared this symbol ...
-        r = re.compile('^%s-(y|objs)\s*[+:]?=' % sym)
+        r = re.compile(rf'^{sym}-(y|objs)\s*[+:]?=')
         for l in open(os.path.join(self.basedir, f), 'r'):
             if r.match(l):
                 # FIXME: check if symbol dependencies can be satisfied!

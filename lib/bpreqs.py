@@ -127,17 +127,17 @@ class Req:
     def req_get_rel_spec(self, rel):
         if "rc" in rel:
             m = re.match(r"v*(?P<VERSION>\d+)\.+"
-                         "(?P<PATCHLEVEL>\d+)[.]*"
-                         "(?P<SUBLEVEL>\d*)"
-                         "(?P<EXTRAVERSION>[-rc]+\w*)\-*"
-                         "(?P<RELMOD_UPDATE>\d*)[-]*",
+                         r"(?P<PATCHLEVEL>\d+)[.]*"
+                         r"(?P<SUBLEVEL>\d*)"
+                         r"(?P<EXTRAVERSION>[-rc]+\w*)\-*"
+                         r"(?P<RELMOD_UPDATE>\d*)[-]*",
                          rel)
         else:
             m = re.match(r"v*(?P<VERSION>\d+)\.+"
-                         "(?P<PATCHLEVEL>\d+)[.]*"
-                         "(?P<SUBLEVEL>\d*)[.]*"
-                         "(?P<EXTRAVERSION>\w*)\-*"
-                         "(?P<RELMOD_UPDATE>\d*)[-]*",
+                         r"(?P<PATCHLEVEL>\d+)[.]*"
+                         r"(?P<SUBLEVEL>\d*)[.]*"
+                         r"(?P<EXTRAVERSION>\w*)\-*"
+                         r"(?P<RELMOD_UPDATE>\d*)[-]*",
                          rel)
         if not m:
             return m

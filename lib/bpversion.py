@@ -16,15 +16,15 @@ def get_rel_spec_stable(rel):
     """
     m = None
     if ("rc" in rel):
-        m = re.match(r"v*(?P<VERSION>\d+)\.+" \
-                     "(?P<PATCHLEVEL>\d+)[.]*" \
-                     "(?P<SUBLEVEL>\d*)" \
-                     "[-rc]+(?P<RC_VERSION>\d+)",
+        m = re.match(r"v*(?P<VERSION>\d+)\.+"
+                     r"(?P<PATCHLEVEL>\d+)[.]*"
+                     r"(?P<SUBLEVEL>\d*)"
+                     r"[-rc]+(?P<RC_VERSION>\d+)",
                      rel)
     else:
-        m = re.match(r"(?P<VERSION>\d+)\.+" \
-                     "(?P<PATCHLEVEL>\d+)[.]*" \
-                     "(?P<SUBLEVEL>\d*)",
+        m = re.match(r"(?P<VERSION>\d+)\.+"
+                     r"(?P<PATCHLEVEL>\d+)[.]*"
+                     r"(?P<SUBLEVEL>\d*)",
                      rel)
     if (not m):
         return m
